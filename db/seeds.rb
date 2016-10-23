@@ -25,4 +25,3 @@ artist2.songs << [song4]
 artist2.songs << [song5]
 artist2.songs << [song6]
 artist2.save
-
