@@ -12,16 +12,26 @@ song3 = Song.create( {name: "Black and White" })
 song4 = Song.create( {name: "Elevation" })
 song5 = Song.create( {name: "One" })
 song6 = Song.create( {name: "Beautiful Day" })
+song7 = Song.create( {name: "Radioactive"})
+song8 = Song.create( {name: "Demons"})
+song9 = Song.create( {name: "On Top Of The World"})
+song10 = Song.create( {name: "Viva La Vida"})
+song11 = Song.create( {name: "Clocks"})
+song12 = Song.create( {name: "Paradise"})
 
-artist1 = Artist.create ( {name: "Michael Jackson" })
-artist2 = Artist.create ( {name: "U2" })
+artist1 = Artist.create({name: "Michael Jackson" })
+artist2 = Artist.create({name: "U2" })
+artist3 = Artist.create({name: "Imagine Dragons" })
+artist4 = Artist.create({name: "Coldplay" })
 
-artist1.songs << [song1]
-artist1.songs << [song2]
-artist1.songs << [song3]
+artist1.songs << [song1, song2, song3]
 artist1.save
 
-artist2.songs << [song4]
-artist2.songs << [song5]
-artist2.songs << [song6]
+artist2.songs << [song4, song5, song6]
 artist2.save
+
+artist3.songs << [song7, song8, song9]
+artist3.save
+
+artist4.songs << [song10, song11, song12]
+artist4.save
