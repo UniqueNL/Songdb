@@ -6,4 +6,34 @@
 <% end %>
 </ul>
 
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <% if notice.present? %>
+      <div class="alert alert-info" role="alert">
+        <%= notice %>
+      </div>
+    <% end %>
+
+    <hr />
+
+    <table class="table table-striped" id="todoList">
+
+    </table>
+
+    <div class="footer">
+      Done: <span id="completed-count">0</span> •
+      Total: <span id="total-count">1</span> •
+      <a href="#" id="clean-up">Delete selected songs</a>
+    </div>
+  </div>
+
+</div>
+
+
+<p>Haven't completed the AJAX exercise yet</p>
+<div id="task-form" style="display:none;"></div>
+
+<%= link_to 'New Song', new_artist_path, remote: true %>
+
 <%= link_to "Back to homepage", root_path %>
