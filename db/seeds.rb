@@ -19,10 +19,10 @@ song10 = Song.create( {name: "Viva La Vida"})
 song11 = Song.create( {name: "Clocks"})
 song12 = Song.create( {name: "Paradise"})
 
-artist1 = Artist.create({name: "Michael Jackson" })
-artist2 = Artist.create({name: "U2" })
-artist3 = Artist.create({name: "Imagine Dragons" })
-artist4 = Artist.create({name: "Coldplay" })
+artist1 = Artist.create({name: "Michael Jackson", image: "http://res.cloudinary.com/unique/image/upload/c_scale,w_200/v1477240582/michaeljackson_hj4eyq.jpg" })
+artist2 = Artist.create({name: "U2", image: "http://res.cloudinary.com/unique/image/upload/c_scale,w_200/v1477240585/u2_pmss1i.jpg"})
+artist3 = Artist.create({name: "Imagine Dragons", image: "http://res.cloudinary.com/unique/image/upload/c_scale,w_200/v1477240579/imaginedragons_pv9bik.jpg" })
+artist4 = Artist.create({name: "Coldplay", image: "http://res.cloudinary.com/unique/image/upload/c_scale,w_200/v1477240577/coldplay_kcnzvz.jpg"})
 
 artist1.songs << [song1, song2, song3]
 artist1.save
