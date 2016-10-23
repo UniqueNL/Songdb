@@ -1,0 +1,10 @@
+<h1>All artists</h1>
+
+<%= link_to('Order by name', :order_by => 'name') %>
+<%= link_to('Order by date', :order_by => 'created_at') %>
+
+<ul>
+<% @artists.each do |artist| %>
+  <li><img src="<%= artist.image %>"/><%= link_to artist.name, artist_path(artist.id) %></li>
+<% end %>
+</ul>

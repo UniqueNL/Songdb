@@ -1,0 +1,5 @@
+<%= simple_form_for @song, remote: true do |f|   %>
+  <%= f.input  :name                      %>
+  <%= f.integer  :artist_id                         %>
+  <%= f.button :submit                           %>
+<% end %>
