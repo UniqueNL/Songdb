@@ -1,5 +1,11 @@
-<%= simple_form_for @song, remote: true do |f|   %>
-  <%= f.input  :name                      %>
-  <%= f.integer  :artist_id                         %>
-  <%= f.button :submit                           %>
+<%= form_for(@song, method: 'post', remote: true, class: 'form') do |f| %>
+  <div class="form-group <%= @song.errors.any? ? 'has-error' : '' %>" id="formgroup-title">
+    <%= f.text_field :name, placeholder: "What to add?", class: 'song-title' %>
+    <%= f.hidden_field :artist_id, value: @artist.id %>
+    <% if @song.errors.any? %>
+      <% @song.errors.full_messages.each do |message| %>
+        <span class="help-block"><%= message %></span>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>

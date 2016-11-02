@@ -14,3 +14,42 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function createSong(title){
+var newSong = { title: title};
+
+  $.ajax({
+    type: "POST",
+    url: "/songs.json",
+    data: JSON.stringify({
+      song: newSong
+    }),
+    contentType: "application/json",
+    dataType: "json"
+  })
+  .done(function(data) {
+    console.log(data);
+
+    var tableRow = $('<tr class="song"></li>');
+
+    $(".songList").append(tableRow);
+
+    updateCounters();
+  })
+
+  .fail(function(error) {
+    console.log(error)
+    error_message = error.responseJSON.title[0];
+    showError(error_message);
+  });
+}
+
+function submitTodo(event) {
+  event.preventDefault();
+  createSong($(".song-title").val());
+  $(".song-title").val(null);
+}
+
+$(document).ready(function() {
+  $("form").bind('submit', submitTodo);
+});

@@ -8,35 +8,54 @@ class ArtistsController < ApplicationController
     else
       @artists = Artist.all
     end
-
-    respond_to do |format|
-      format.html
-      format.json
-    end
   end
-
 
   def show
     @artist = Artist.find(params[:id])
     @songs = @artist.songs
+    @song = Song.new
   end
 
   def new
-  @song = Song.new
+    @song = Song.new
   end
 
   def create
-    @song  = Song.create(song_params)
+    @song = Song.new(song_params)
+
+    respond_to do |format|
+      if @song.save
+        format.html { redirect_to root_path, notice: 'Song was successfully created.' }
+        format.json { render :show, status: :created, location: @song }
+      else
+        format.html { render :new }
+        format.json { render json: @song.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def edit
+    @song = Song.find(params[:id])
+  end
+
+  def update
+    @songs = Song.all
+    @song = Song.find(params[:id])
+    @song.update_attributes(song_params)
+  end
+
+  def destroy
+    @songs = Song.all
+    @song = Song.find(params[:id])
+    @song.destroy
+  end
+
+  def delete
+    @song = Song.find(params[:song_id])
   end
 
   private
-
-    def all_tasks
-      @songs = Song.all
+    def song_params
+      params.require(:song).permit(:name)
     end
-
-    def task_params
-      params.require(:song).permit(:name, :artist_id)
-    end
-
-end
+  end

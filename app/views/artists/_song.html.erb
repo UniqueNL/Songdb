@@ -1,0 +1,7 @@
+<ul class="songList">
+<% @artist.songs.each do |song| %>
+  <li class="song"><%= song.name %></li>
+
+  <%= link_to "Delete", song ,:method => 'delete' %>
+<% end %>
+</ul>
