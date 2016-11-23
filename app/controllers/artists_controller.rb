@@ -52,6 +52,7 @@ class ArtistsController < ApplicationController
 
   def delete
     @song = Song.find(params[:song_id])
+    @songs = Song.all
   end
 
   private
